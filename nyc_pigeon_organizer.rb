@@ -20,30 +20,36 @@ def nyc_pigeon_organizer(data)
   #   end
   # end
   # new_hash
-  pigeons2 = {}
+  new_pigeon_data = {}
 
-#This is heavily borrowed from Blake's lecture & notes, but refactored a bit.
-data.each do |key, hash|
-  # <:color => {:purple => ["Theo", "Peter Jr.", "Lucky"],etc}>
-  hash.each do |attribute, name_array|
-    # <:purple => ["Theo", "Peter Jr.", "Lucky"]>
-    # <"Subway" => ["Theo", "Queenie"]>
-    name_array.each do |name|
-      # <["Theo", "Peter Jr.", "Lucky"]>
-      if pigeons2[name].nil?
-        pigeons2[name] = {}
-        pigeons2[name][:color] = []
-      end
-      if key == :color
-        #for each name in pigeons, if key = :color, shovel the attribute (purple, grey, etc) into the pigeons2 color array
-        pigeons2[name][key] << attribute
-      else
-        #otherwise assign the key(:lives or :gender) to pigeons2 hash and set it equal to the value of that attribute
-        #convert attributes to string!!!!! yayyyyyyyyy!
-        pigeons2[name][key] = attribute.to_s
+     data.each do |attribute_category, attribute_data_hash|
+      attribute_data_hash.each do |attribute, name_array|
+        name_array.each do |name|
+          new_pigeon_data[name] = {:color => [], :gender => [], :lives => []}  #establish top tier
+        end
       end
     end
-  end
-end
-pigeons2
+    data[:color].each do |attribute, name_array|
+      name_array.each do |name|
+        if data[:color][attribute].include?(name)
+          new_pigeon_data[name][:color] << attribute.to_s
+        end
+      end
+    end
+    data[:gender].each do |attribute, name_array|
+      name_array.each do |name|
+        if data[:gender][attribute].include?(name)
+          new_pigeon_data[name][:gender] << attribute.to_s
+        end
+      end
+    end
+    data[:lives].each do |attribute, name_array|
+      name_array.each do |name|
+        if data[:lives][attribute].include?(name)
+          new_pigeon_data[name][:lives] << attribute
+        end
+      end
+    end
+    
+    new_pigeon_data
 end
