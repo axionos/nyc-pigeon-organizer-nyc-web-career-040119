@@ -33,6 +33,7 @@ def nyc_pigeon_organizer(data)
       end
     end
   end
+  binding.pry
 
   data[:color].each do |attribute, name_array|
     name_array.each do |name|
