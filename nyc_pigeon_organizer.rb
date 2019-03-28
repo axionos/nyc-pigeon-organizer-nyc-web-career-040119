@@ -20,20 +20,27 @@ def nyc_pigeon_organizer(data)
   #   end
   # end
   # new_hash
-  new_hash = {}
+  pigeons2 = {}
 
-  data.each do |attribute_category, attribute_hash|
-    attribute_hash.each do |attribute, name_array|
-      name_array.each do |name|
-        if new_hash[name].nil?
-          new_hash[name] = {}
-          new_hash[name][:color] = []
-        end
-        if attribute_category == :color
-          new_hash[name][attribute_category] << attribute
-        else
-          new_hash[name][attribute_category] = attribute.to_s
-        end
+#This is heavily borrowed from Blake's lecture & notes, but refactored a bit.
+data.each do |key, hash|
+  # <:color => {:purple => ["Theo", "Peter Jr.", "Lucky"],etc}>
+  hash.each do |attribute, name_array|
+    # <:purple => ["Theo", "Peter Jr.", "Lucky"]>
+    # <"Subway" => ["Theo", "Queenie"]>
+    name_array.each do |name|
+      # <["Theo", "Peter Jr.", "Lucky"]>
+      if pigeons2[name].nil?
+        pigeons2[name] = {}
+        pigeons2[name][:color] = []
+      end
+      if key == :color
+        #for each name in pigeons, if key = :color, shovel the attribute (purple, grey, etc) into the pigeons2 color array
+        pigeons2[name][key] << attribute
+      else
+        #otherwise assign the key(:lives or :gender) to pigeons2 hash and set it equal to the value of that attribute
+        #convert attributes to string!!!!! yayyyyyyyyy!
+        pigeons2[name][key] = attribute.to_s
       end
     end
   end
