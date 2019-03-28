@@ -29,6 +29,9 @@ def nyc_pigeon_organizer(data)
           new_hash[name] = {}
           new_hash[name][:color] = []
         end
+        if attribute_category == :color
+          new_hash[name][attribute_category << attribute]
+        end
       end
   end
 end
