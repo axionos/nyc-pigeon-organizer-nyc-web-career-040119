@@ -21,7 +21,9 @@ def nyc_pigeon_organizer(data)
   # new_hash
   new_hash = {}
 
-  data.each do |category, data_hash|
+  data.each do |category, attribute_data|
+    attribute_data.each do |attribute, name|
 
+    end
   end
 end
