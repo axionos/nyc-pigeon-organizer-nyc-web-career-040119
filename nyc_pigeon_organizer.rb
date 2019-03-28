@@ -25,7 +25,7 @@ def nyc_pigeon_organizer(data)
   data.each do |attribute_category, attribute_hash|
     attribute_hash.each do |attribute, name_array|
       name_array.each do |name|
-        if new_hash[name] == nil
+        if new_hash[name].nil?
           new_hash[name] = {}
           new_hash[name][:color] = []
         end
