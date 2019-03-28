@@ -20,26 +20,5 @@ def nyc_pigeon_organizer(data)
   #   end
   # end
   # new_hash
-  new_hash = {}
-
-  data.each do |category, attribute_data_hash|
-    attribute_data_hash.each do |attribute, name_array|
-      name_array.each do |name|
-          new_hash[name] = {
-            :color => [],
-            :gender => [],
-            :lives => []
-          }
-      end
-    end
-  end
-  binding.pry
-
-  data[:color].each do |attribute, name_array|
-    name_array.each do |name|
-      if data[:color][attribute].include?(name)
-        new_hash[name][:color] << attribute.to_s
-      end
-    end
-  end
+  
 end
