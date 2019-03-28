@@ -35,6 +35,7 @@ def nyc_pigeon_organizer(data)
           new_hash[name][attribute_category] = attribute.to_s
         end
       end
+    end
   end
   new_hash
 end
