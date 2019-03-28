@@ -30,10 +30,10 @@ def nyc_pigeon_organizer(data)
             :lives => []
           }
       end
-      binding.pry
+
     end
   end
-
+binding.pry
   data[:color].each do |attribute, name_array|
     name_array.each do |name|
       if condition
