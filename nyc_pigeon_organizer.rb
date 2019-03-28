@@ -34,6 +34,6 @@ def nyc_pigeon_organizer(data)
   end
 
   data[:color].each do |attribute, name_array|
-
+    
   end
 end
