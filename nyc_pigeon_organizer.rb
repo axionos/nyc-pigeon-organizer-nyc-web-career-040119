@@ -26,7 +26,7 @@ def nyc_pigeon_organizer(data)
       name_array.each do |name|
           new_hash[name] = {
             :color => [],
-            :gender => [].
+            :gender => [],
             :lives => []
           }
         end
