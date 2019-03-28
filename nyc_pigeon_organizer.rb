@@ -12,7 +12,7 @@ def nyc_pigeon_organizer(data)
         end
 
         if !new_hash[name][key].include?(att)
-          new_hash[name][key] << att
+          new_hash[name][key] << att.to_s
 
         end
       end
