@@ -36,8 +36,8 @@ def nyc_pigeon_organizer(data)
 
   data[:color].each do |attribute, name_array|
     name_array.each do |name|
-      if condition
-
+      if data[:color][attribute].include?(name)
+        new_hash[name][:color] << attribute.to_s
       end
     end
   end
