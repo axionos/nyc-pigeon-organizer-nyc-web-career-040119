@@ -24,7 +24,11 @@ def nyc_pigeon_organizer(data)
   data.each do |category, attribute_data_hash|
     attribute_data.each do |attribute, name_array|
       name_array.each do |name|
-          new_hash[name] = {}
+          new_hash[name] = {
+            :color => [],
+            :gender => [].
+            :lives => []
+          }
       end
     end
   end
