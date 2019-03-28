@@ -22,14 +22,14 @@ def nyc_pigeon_organizer(data)
   new_hash = {}
 
   data.each do |category, attribute_data_hash|
-    attribute_data.each do |attribute, name_array|
+    attribute_data_hash.each do |attribute, name_array|
       name_array.each do |name|
           new_hash[name] = {
             :color => [],
             :gender => [],
             :lives => []
           }
-        
+
       end
     end
   end
